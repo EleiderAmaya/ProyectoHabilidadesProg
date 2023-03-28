@@ -44,6 +44,7 @@ int main()
 			  	//busca en el arreglo donde esta vacio para ingresar un nuevo vehiculo
 			  	for(int i = 0; i<5;i++){
 			  		if(autosS[i][0]==""){
+			  			//ingresamos cada uno de los campos de un vehiculo
 			  			cout<< "\tIngresar datos del vehiculo \n"<<endl;
 			  			cout<< "\tIngresar placa del vehiculo \n"<<endl;
 			  			cin >> autosS[i][0];
