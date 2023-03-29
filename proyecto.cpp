@@ -11,6 +11,7 @@ int main()
 	//placa = 0 , marca = 1
 	string autosS[5][2] = {};
 	int cant_autos = 0;
+	string placaBuscar;
    do{
    		//imprime el menu del sistema
    	    cout << "            Bienvenido a CaRental        "<<"\n"<<endl;
@@ -33,17 +34,59 @@ int main()
        switch (opcion)
 	   {
 	   		//muetra un listado de todos los vehiculos disponibles
-	       	case 1: cout << "mostrar parque automotor"<<endl;
+	       	case 1: 
+			   cout << "mostrar parque automotor"<<endl;
+			   for (int i = 0; i< 5;i++){
+			   	    cout <<"****************************************"<<endl;
+			   		cout <<" Auto No: "<<i+1<<endl;
+			   		cout <<" Placa: "<<autosS[i][0]<<" Marca: "<<autosS[i][1]<<" Kilometraje: "<<autosN[i][0]<<" Modelo: "<<autosN[i][1]<<endl;
+					cout <<" Tipo Soat: "<<autosN[i][2]<<" Costo: "<<autosN[i][3]<<" Tipo vehiculo: "<<autosN[i][4]<<" Alquilado: "<<autosN[i][5]<<endl;
+					cout <<"****************************************"<<endl;
+			   }
 			break;
 			//registro de un vehiculo nuevo, si hay espacio
     		case 2 : 
-    		cout<< "\tIngreso de vehiculos \n \n";
-			cout<< "\tIngresar un Vehiculo \n"<<endl;
-			//verifica si hay espacio para un nuevo vehiculo
-			  if(cant_autos<=5){
+    			cout<<"Eliminar Auto";
+				cout<<"Digite la placa del auto a eliminar: ";
+				cin >> placaBuscar;
+				for(int i = 0; i<5;i++){
+					if(autosS[i][0]==placaBuscar){
+						cout <<"****************************************"<<endl;
+				   		cout <<" Auto No: "<<i+1<<endl;
+				   		cout <<" Placa: "<<autosS[i][0]<<" Marca: "<<autosS[i][1]<<" Kilometraje: "<<autosN[i][0]<<" Modelo: "<<autosN[i][1]<<endl;
+						cout <<" Tipo Soat: "<<autosN[i][2]<<" Costo: "<<autosN[i][3]<<" Tipo vehiculo: "<<autosN[i][4]<<" Alquilado: "<<autosN[i][5]<<endl;
+						cout <<"****************************************"<<endl;
+						break;
+					}
+				}
+				cout<<"Busqueda completa o placa no encontrada"<<endl;
+				break;
+    		
+    		case 3 :
+				cout<<"Eliminar Auto";
+				cout<<"Digite la placa del auto a eliminar: ";
+				cin >> placaBuscar;
+				for(int i = 0; i<5;i++){
+					if(autosS[i][0]==placaBuscar){
+						autosS[i][0]=autosS[i][1]="";
+						autosN[i][0]=autosN[i][1]=autosN[i][2]=autosN[i][3]=autosN[i][4]=autosN[i][5]=0;
+						cant_autos--;
+						cout<<"Auto No:"<<i+1<<" Eliminado!"<<endl;;
+						break;
+					}
+				}
+				cout<<"Eliminacion completa o placa no encontrada"<<endl;
+				break;
+    		case 4:
+			cout<< "\cantidad de vehiculos: "<< cant_autos <<" \n \n";
+			//si lacantidad de vahiculos es menor o igual a 4 deja ingresar, porque quedaria un espacio el 5
+			  if(cant_autos<=4){
 			  	//busca en el arreglo donde esta vacio para ingresar un nuevo vehiculo
 			  	for(int i = 0; i<5;i++){
 			  		if(autosS[i][0]==""){
+			  			cout<< "\tIngreso de vehiculos \n \n";
+						cout<< "\tIngresar un Vehiculo \n"<<endl;
+			  			cout<< "\tIngresar auto No: "<< i+1 <<endl;
 			  			//ingresamos cada uno de los campos de un vehiculo
 			  			cout<< "\tIngresar datos del vehiculo \n"<<endl;
 			  			cout<< "\tIngresar placa del vehiculo: \n"<<endl;
@@ -62,24 +105,30 @@ int main()
 			  			cin >> autosN[i][4];
 			  			//ponemos el nuevo carro como disponible
 			  			autosN[i][5]=0;
-			  			
+			  			//una vez ingresado el vehiculo confirmamos el ingreso imprimiendo los datos
 			  			cout <<"Ingresado Nuevo Vehiculo"<<endl;
 			  			cout <<"Placa: "<<autosS[i][0]<<"\nMarca: "<<autosS[i][1]<<"\nKilometraje: "<<autosN[i][0]<<"\nModelo: "<<autosN[i][1]<<endl;
-						cout <<"\nTipo Soat: "<<autosN[i][2]<<"\nCosto: "<<autosN[i][3]<<"\nTipo vehiculo: "<<autosN[i][4]<<"\nAlquilado"<<autosN[i][5]<<endl;
+						cout <<"Tipo Soat: "<<autosN[i][2]<<"\nCosto: "<<autosN[i][3]<<"\nTipo vehiculo: "<<autosN[i][4]<<"\nAlquilado: "<<autosN[i][5]<<endl;
+						//aumento la cantidad de autos guardados
+						cant_autos++;
+						//si se guarda el vehiculo 5 se llena el cupo y salimos
+						if(cant_autos==5){
+							cout << "no hay espaciopara mas vehiculos"<<endl;
+							break;
+						}
+						//como ya se lleno los datos salimos y volvemos al menu
+						break;
 					}
-					break;
 				}
 			  }else{
+			  	//somo la cantidad no es menor ni igual a 4, sino que es 5 no deja ingresar
+			  	//avisa al usuario que no hay mas cupos
 			  	cout << "no hay espaciopara mas vehiculos"<<endl;
 			  }
-			break;
-    		case 3 :cout<<"3"; 
-			break;
-    		case 4: cout<< "4";                          
-
-			break;
-    		case 5 :cout<<"5"; 
-			break;
+				break;
+    		case 5 :
+				cout<<"5"; 
+				break;
     		default: ;
     	}
 
