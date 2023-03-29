@@ -46,23 +46,28 @@ int main()
 			  		if(autosS[i][0]==""){
 			  			//ingresamos cada uno de los campos de un vehiculo
 			  			cout<< "\tIngresar datos del vehiculo \n"<<endl;
-			  			cout<< "\tIngresar placa del vehiculo \n"<<endl;
+			  			cout<< "\tIngresar placa del vehiculo: \n"<<endl;
 			  			cin >> autosS[i][0];
-			  			cout<< "\tIngresar kilometraje del vehiculo \n"<<endl;
-			  			cin >> autosN[i][0];
-			  			cout<< "\tIngresar maarca del vehiculo \n"<<endl;
+			  			cout<< "\tIngresar marca del vehiculo: \n"<<endl;
 			  			cin >> autosS[i][1];
-			  			cout<< "\tIngresar placa del vehiculo \n"<<endl;
-			  			cin >> autosS[i][0];
-			  			cout<< "\tIngresar placa del vehiculo \n"<<endl;
-			  			cin >> autosS[i][0];
-			  			cout<< "\tIngresar placa del vehiculo \n"<<endl;
-			  			cin >> autosS[i][0];
-			  			cout<< "\tIngresar placa del vehiculo \n"<<endl;
-			  			cin >> autosS[i][0];
-			  			cout<< "\tIngresar placa del vehiculo \n"<<endl;
-			  			cin >> autosS[i][0];
+			  			cout<< "\tIngresar kilometraje: \n"<<endl;
+			  			cin >> autosN[i][0];
+			  			cout<< "\tIngresar modelo: \n"<<endl;
+			  			cin >> autosN[i][1];
+			  			cout<< "\tIngresar tipo soat: \n"<<endl;
+			  			cin >> autosN[i][2];
+			  			cout<< "\tIngresar costo alquiler: \n"<<endl;
+			  			cin >> autosN[i][3];
+			  			cout<< "\tIngresar tipo vehiculo: \n"<<endl;
+			  			cin >> autosN[i][4];
+			  			//ponemos el nuevo carro como disponible
+			  			autosN[i][5]=0;
+			  			
+			  			cout <<"Ingresado Nuevo Vehiculo"<<endl;
+			  			cout <<"Placa: "<<autosS[i][0]<<"\nMarca: "<<autosS[i][1]<<"\nKilometraje: "<<autosN[i][0]<<"\nModelo: "<<autosN[i][1]<<endl;
+						cout <<"\nTipo Soat: "<<autosN[i][2]<<"\nCosto: "<<autosN[i][3]<<"\nTipo vehiculo: "<<autosN[i][4]<<"\nAlquilado"<<autosN[i][5]<<endl;
 					}
+					break;
 				}
 			  }else{
 			  	cout << "no hay espaciopara mas vehiculos"<<endl;
